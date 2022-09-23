@@ -1,0 +1,6 @@
+ID,Name,Sprite,Content,Type
+1,Stone,Stone,돌 블록이다.,Stone
+2,Grass,Grass,풀 블록이다.,Grass
+3,Dirt,Dirt,모래 블록이다.,Dirt
+4,Planks,Planks,나무 블록이다.,Planks
+5,Log,Log,원목 블록이다.,Log

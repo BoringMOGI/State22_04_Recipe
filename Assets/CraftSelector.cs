@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class CraftSelector : MonoBehaviour
 {
+    [SerializeField] CraftDetail detail;
     [SerializeField] CraftRecipeButton prefab;
     [SerializeField] Transform buttonParent;
 
-    public void Setup(Recipe.TYPE type)
+    private void Start()
+    {
+        gameObject.SetActive(false);
+        detail.gameObject.SetActive(false);
+    }
+
+    public void Setup(Recipe.CATEGORY type)
     {
         Recipe[] recipes = RecipeManager.Instance.GetRecipeFromType(type);
 
@@ -22,6 +29,7 @@ public class CraftSelector : MonoBehaviour
     }
     public void OnClickRecipeButton(Recipe recipe)
     {
-
+        detail.gameObject.SetActive(true);
+        detail.Setup(recipe);
     }
 }

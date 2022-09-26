@@ -21,6 +21,9 @@ public class ItemManager : MonoBehaviour
         List<ItemData> list = new List<ItemData>();
         string[] itemString = sheet.text.Split('\n');
         bool isHead = true;
+
+        Sprite[] allSprites = Resources.LoadAll<Sprite>("Sprite");
+
         foreach (string line in itemString)
         {
             if(isHead || string.IsNullOrEmpty(line))
@@ -35,7 +38,7 @@ public class ItemManager : MonoBehaviour
             newItem.id = int.Parse(data[0]);
             newItem.name = data[1];
             newItem.material = Resources.Load<Material>($"Texture/Materials/{data[2]}");
-            newItem.sprite = Resources.Load<Sprite>($"Sprite/{data[2]}");
+            newItem.sprite = allSprites.Where(sprite => sprite.name.Equals(data[2])).First();
             newItem.content = data[3];
             newItem.type = data[4];
 
@@ -50,11 +53,22 @@ public class ItemManager : MonoBehaviour
         ItemData search = items.Where(item => item.name.Equals(name)).First();
         return search;
     }
-    public Item GetItem(string name)
+    public ItemData GetItemData(ITEM_KEY key)
+    {
+        return GetItemData(key.ToString());
+    }
+
+
+
+    public Item GetItem(string name, int count = 1)
     {
         Item newItem = new Item();
         newItem.data = GetItemData(name);
-        newItem.count = 1;
+        newItem.count = count;
         return newItem;
+    }
+    public Item GetItem(ITEM_KEY key, int count = 1)
+    {
+        return GetItem(key.ToString(), count);
     }
 }

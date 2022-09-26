@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New recipe", menuName = "Item/New recipe")]
 public class Recipe : ScriptableObject
 {
-    public enum TYPE
+    public enum CATEGORY
     {
         Weapon,
         Tool,
@@ -17,11 +17,11 @@ public class Recipe : ScriptableObject
     [System.Serializable]
     public struct RecipeItem
     {
-        public string item;
+        public ITEM_KEY itemKey;
         public int count;                
     }
 
-    public TYPE type;
-    public string resultItem;
+    public CATEGORY type;
+    public ITEM_KEY resultItem;
     public RecipeItem[] materials;
 }

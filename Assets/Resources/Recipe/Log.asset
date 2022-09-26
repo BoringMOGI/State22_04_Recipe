@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 1
   resultItem: Log
   materials:
-  - item: Dirt
+  - itemKey: 0
     count: 3
-  - item: Stone
+  - itemKey: 1
     count: 3

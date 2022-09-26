@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class ItemData
+public partial class ItemData
 {
     public int id;
     public string name;
@@ -12,3 +12,14 @@ public class ItemData
     public string content;
     public string type;
 }
+
+public enum ITEM_KEY
+{
+    Stone,
+    Grass,
+    Dirt,
+    Planks,
+    Log,
+}
+
+

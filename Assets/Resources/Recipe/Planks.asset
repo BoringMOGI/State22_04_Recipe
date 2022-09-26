@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 1
   resultItem: Planks
   materials:
-  - item: Stone
+  - itemKey: 0
     count: 1
-  - item: Grass
+  - itemKey: 2
     count: 2
